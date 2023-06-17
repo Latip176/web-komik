@@ -1,0 +1,20 @@
+#populer .card, #proyek .card, #terbaru .card {
+    margin: 15px;
+    width: 220px;
+    height: 420px;
+}
+
+.card .card-img-top {
+    margin-top: 15px;
+    height: 250px;
+    width: 100%;
+    transition: .3s;
+}
+
+.card .card-title:hover, .card .card-title:focus {
+    color: lightblue;
+}
+.card .card-img-top:hover {
+    transform: rotate(3deg);
+    border: 1px solid lightseagreen;
+}

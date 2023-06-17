@@ -1,0 +1,9 @@
+.footer a:hover {
+  color: rgb(166, 255, 0) !important;
+  transition: 1s;
+}
+.navbar .navbar-nav a:hover {
+    color: white !important;
+    transition: .3s;
+    font-weight: bold;
+}
