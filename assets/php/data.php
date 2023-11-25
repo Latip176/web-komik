@@ -23,7 +23,7 @@ function requests($url) {
 }
 
 function search($param, $route) {
-    global $url
+    global $url;
     if($route=="category") {
         $rt = $url . "/api/search/?category={$param}";
     } else {
@@ -35,7 +35,7 @@ function search($param, $route) {
 }
 
 function reads($next, $route, $param) {
-    global $url
+    global $url;
     if($route=="limit") {
         $rt = $url . "/api/reads/?url={$next}&limit={$param}";
     } elseif($route=="only_chapter") {
@@ -49,7 +49,7 @@ function reads($next, $route, $param) {
 }
 
 function read($next) {
-    global $url
+    global $url;
     $rt = $url . "/api/read/?url={$next}";
 
     $result = requests($rt);
