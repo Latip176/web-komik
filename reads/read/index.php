@@ -7,7 +7,6 @@ $url = $_GET['url'];
 if($url) {
     preg_match('/chapter-(\d+-\d+)/', $url, $matches);
     if (isset($matches[1])) {
-        // Mengganti tanda "-" dengan "."
         $berada = str_replace('-', '.', $matches[1]);
     } else {
         preg_match('/chapter-(\d+)/', $url, $matches);
@@ -73,13 +72,9 @@ if($url) {
         </div>
     </div>
     <section class="content">
-        <?php
-            for($i = 0; $i < count($data[0][$key]); $i++) {
-                echo<<<EOD
-                <img src="{$data[0][$key][$i]}" alt="Panel Image">
-                EOD;
-            }
-        ?>
+        <?php for($i = 0; $i < count($data[0][$key]); $i++): ?>
+            <img src="<?= $data[0][$key][$i] ?>" alt="Panel Image">
+        <?php endfor ?>
     </section>
     <div class="container button">
         <div class="row" style="display: flex; justify-content: center;">
