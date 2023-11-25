@@ -36,6 +36,7 @@ if($url) {
                 }
         <?php
             }
+        }
         ?>
     </style>
     <link rel="stylesheet" href="style.css">
