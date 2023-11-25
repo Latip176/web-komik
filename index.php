@@ -7,7 +7,7 @@ include 'assets/templates/html.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Baca Komik - Bahasa Indonesia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
     <link rel="stylesheet" href="assets/css/style.css">
@@ -30,17 +30,20 @@ include 'assets/templates/html.php';
                 <?php
                     $data_populer = search("populer", "category");
                     foreach ($data_populer as $data) {
+                ?>
+                    <?php
                         $len = strlen($data['title']);
                         $title = $len <= 30 ? $data['title'] : substr($data['title'], 0, 30) . '...';
-                        echo '
+                    ?>
                         <div class="card overflow-hidden">
-                            <a href="reads/?url=' . $data['url'] . '"><img class="card-img-top" src="' . $data['bg_url'] . '" alt="Cover of Comic" style="object-fit: cover;"></a>
+                            <a href="reads/?url=<?= $data['url'] ?>"><img class="card-img-top" src="<?= $data['bg_url'] ?>" alt="Cover of Comic" style="object-fit: cover;"></a>
                             <div class="card-body" style="height: 200px;">
-                                <a class="card-title fw-bold link-dark" href="reads/?url=' . $data['url'] . '">' . $title . '</a>
-                                <p class="text-muted">Chapter ' . $data['chapter'] . '</p>
-                                <p class="text-muted"><img src="assets/img/star.png" style="width: 20px; height: 20px;"> Ratings: ' . $data['rating'] . '</p>
+                                <a class="card-title fw-bold link-dark" href="reads/?url=<?= $data['url'] ?>"><?= $title ?></a>
+                                <p class="text-muted">Chapter <?= $data['chapter'] ?></p>
+                                <p class="text-muted"><img src="assets/img/star.png" style="width: 20px; height: 20px;"> Ratings: <?= $data['rating'] ?></p>
                             </div>
-                        </div>';
+                        </div>
+                <?php
                     }
                 ?>
             </div>
@@ -54,20 +57,25 @@ include 'assets/templates/html.php';
                 <?php
                     $data_proyek = search("proyek", "category");
                     foreach ($data_proyek as $data) {
+                ?>
+                    <?php
                         $len = strlen($data['title']);
                         $title = $len <= 30 ? $data['title'] : substr($data['title'], 0, 30) . '...';
-                        echo '
+                    ?>
                         <div class="card overflow-hidden">
-                            <a href="reads/?url=' . $data['url'] . '"><img class="card-img-top" src="' . $data['bg_url'] . '" alt="Cover of Comic" style="object-fit: cover;"></a>
+                            <a href="reads/?url=<?= $data['url'] ?>"><img class="card-img-top" src="<?= $data['bg_url'] ?>" alt="Cover of Comic" style="object-fit: cover;"></a>
                             <div class="card-body" style="height: 200px;">
-                                <a class="card-title fw-bold link-dark" href="reads/?url=' . $data['url'] . '">' . $title . '</a>
-                        ';
+                                <a class="card-title fw-bold link-dark" href="reads/?url=<?= $data['url'] ?>"><?= $title ?></a>
+                    <?php
                         foreach($data['update'] as $update) {
-                            echo '<p class="text-muted">' . $update[1]['chapter'] . ': ' . $update[1]['time'] . '</p>';
+                    ?>
+                            <p class="text-muted"><?= $update[1]['chapter'] . ': ' . $update[1]['time'] ?></p>
+                    <?php
                         }
-                        echo '
+                    ?>
                             </div>
-                        </div>';
+                        </div>
+                <?php
                     }
                 ?>
             </div>
@@ -80,20 +88,25 @@ include 'assets/templates/html.php';
                 <?php
                     $data_terbaru = search("terbaru", "category");
                     foreach ($data_terbaru as $data) {
+                ?>
+                    <?php
                         $len = strlen($data['title']);
                         $title = $len <= 30 ? $data['title'] : substr($data['title'], 0, 30) . '...';
-                        echo '
+                    ?>
                         <div class="card overflow-hidden">
-                            <a href="reads/?url=' . $data['url'] . '"><img class="card-img-top" src="' . $data['bg_url'] . '" alt="Cover of Comic" style="object-fit: cover;"></a>
+                            <a href="reads/?url=<?= $data['url'] ?>"><img class="card-img-top" src="<?= $data['bg_url'] ?>" alt="Cover of Comic" style="object-fit: cover;"></a>
                             <div class="card-body" style="height: 200px;">
-                                <a class="card-title fw-bold link-dark" href="reads/?url=' . $data['url'] . '">' . $title . '</a>
-                        ';
+                                <a class="card-title fw-bold link-dark" href="reads/?url=<?= $data['url'] ?>"><?= $title ?></a>
+                    <?php
                         foreach($data['update'] as $update) {
-                            echo '<p class="text-muted">' . $update[1]['chapter'] . ': ' . $update[1]['time'] . '</p>';
+                    ?>
+                            <p class="text-muted"><?= $update[1]['chapter'] . ': ' . $update[1]['time'] ?></p>
+                    <?php
                         }
-                        echo '
+                    ?>
                             </div>
-                        </div>';
+                        </div>
+                <?php
                     }
                 ?>
             </div>
