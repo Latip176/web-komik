@@ -1,6 +1,6 @@
 <?php
 
-$url = "https://mangayaro-api-production.up.railway.app";
+$url = "https://mangayaro-api.vercel.app";
 
 function requests($url) {
     // persiapkan curl
@@ -23,32 +23,34 @@ function requests($url) {
 }
 
 function search($param, $route) {
-    $url = "https://mangayaro-api-production.up.railway.app";
+    global $url
     if($route=="category") {
-        $rt = "https://mangayaro-api-production.up.railway.app/api/search/?category={$param}";
+        $rt = $url . "/api/search/?category={$param}";
     } else {
-        $rt = "https://mangayaro-api-production.up.railway.app/api/search/?keyword={$param}";
+        $rt = $url . "/api/search/?keyword={$param}";
     }
 
     $result = requests($rt);
     return json_decode($result, true)['results'][0]['data'];
 }
 
-function reads($url, $route, $param) {
+function reads($next, $route, $param) {
+    global $url
     if($route=="limit") {
-        $rt = "https://mangayaro-api-production.up.railway.app/api/reads/?url={$url}&limit={$param}";
+        $rt = $url . "/api/reads/?url={$next}&limit={$param}";
     } elseif($route=="only_chapter") {
-        $rt = "https://mangayaro-api-production.up.railway.app/api/reads/?url={$url}&only_chapter={$param}";
+        $rt = $url . "/api/reads/?url={$next}&only_chapter={$param}";
     } elseif($route=="reads") {
-        $rt = "https://mangayaro-api-production.up.railway.app/api/reads/?url={$url}";
+        $rt = $url . "/api/reads/?url={$next}";
     }
 
     $result = requests($rt);
     return json_decode($result, true)["results"];
 }
 
-function read($url) {
-    $rt = "https://mangayaro-api-production.up.railway.app/api/read/?url={$url}";
+function read($next) {
+    global $url
+    $rt = $url . "/api/read/?url={$next}";
 
     $result = requests($rt);
     return json_decode($result, true)['results'];
