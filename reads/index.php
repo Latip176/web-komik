@@ -18,7 +18,7 @@ if($url) {
     <title>Reads <?= foreach($data as $info) { $info['title']; }?></title>
     <style>
         <?php
-        foreach($data as $info)
+        foreach($data as $info) {
             if($info['chapter_count'] <=30) {
         ?>
                 .footer {
