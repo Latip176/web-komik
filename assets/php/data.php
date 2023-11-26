@@ -1,6 +1,6 @@
 <?php
 
-$url = "https://mangayaro-api.vercel.app";
+$public_api = "https://mangayaro-api.vercel.app";
 
 function requests($url) {
     // persiapkan curl
@@ -23,11 +23,11 @@ function requests($url) {
 }
 
 function search($param, $route) {
-    global $url;
+    global $public_api;
     if($route=="category") {
-        $rt = $url . "/api/search/?category={$param}";
+        $rt = $public_api . "/api/search/?category={$param}";
     } else {
-        $rt = $url . "/api/search/?keyword={$param}";
+        $rt = $public_api . "/api/search/?keyword={$param}";
     }
 
     $result = requests($rt);
@@ -35,13 +35,13 @@ function search($param, $route) {
 }
 
 function reads($next, $route, $param) {
-    global $url;
+    global $public_api;
     if($route=="limit") {
-        $rt = $url . "/api/reads/?url={$next}&limit={$param}";
+        $rt = $public_api . "/api/reads/?url={$next}&limit={$param}";
     } elseif($route=="only_chapter") {
-        $rt = $url . "/api/reads/?url={$next}&only_chapter={$param}";
+        $rt = $public_api . "/api/reads/?url={$next}&only_chapter={$param}";
     } elseif($route=="reads") {
-        $rt = $url . "/api/reads/?url={$next}";
+        $rt = $public_api . "/api/reads/?url={$next}";
     }
 
     $result = requests($rt);
@@ -49,8 +49,8 @@ function reads($next, $route, $param) {
 }
 
 function read($next) {
-    global $url;
-    $rt = $url . "/api/read/?url={$next}";
+    global $public_api;
+    $rt = $public_api . "/api/read/?url={$next}";
 
     $result = requests($rt);
     return json_decode($result, true)['results'];
