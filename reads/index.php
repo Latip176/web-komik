@@ -15,10 +15,10 @@ if($url) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reads <?= foreach($data as $info) { $info['title']; }?></title>
+    <title>Reads <?php foreach($data as $info) { echo $info['title']; } ?></title>
     <style>
         <?php
-        foreach($data as $info) {
+        foreach($data as $info)
             if($info['chapter_count'] <=30) {
         ?>
                 .footer {
@@ -36,14 +36,13 @@ if($url) {
                 }
         <?php
             }
-        }
         ?>
     </style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../assets/templates/global.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body style="background-image: url(<?= foreach($data as $info) { $info['bg_url']; }?>);">
+<body style="background-image: url(<?php foreach($data as $info) { echo $info['bg_url']; } ?>);">
     <?= $navbar ?>
 
     <div class="bg w-100" style="
